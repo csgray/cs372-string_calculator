@@ -4,13 +4,17 @@
 
 int add(std::string numbers) {
 	int sum = 0;
-	int number;
 	std::string token;
 	
 	std::replace(numbers.begin(), numbers.end(), '\n', ',');
 	std::istringstream stream(numbers);
-	while (std::getline(stream, token, ','))
-		sum += std::stoi(token);
+
+	while (std::getline(stream, token, ',')) {
+		int number = std::stoi(token);
+		if (number < 0)
+			throw -1;
+		sum += number;
+	}
 
 	return sum;
 }
