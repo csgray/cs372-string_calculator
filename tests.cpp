@@ -16,3 +16,9 @@ TEST_CASE("Two numbers, comma delimited, returns the sum.") {
 	REQUIRE(add("13,39") == 52);
 	REQUIRE(add("240,601") == 841);
 }
+
+TEST_CASE("Two numbers, newline delimited, returns the sum.") {
+	REQUIRE(add("3\n5") == 8);
+	REQUIRE(add("14\n40") == 54);
+	REQUIRE(add("241\n602") == 843);
+}
