@@ -13,6 +13,8 @@ int add(std::string numbers) {
 		int number = std::stoi(token);
 		if (number < 0)
 			throw -1;
+		if (number > 1000)
+			continue;
 		sum += number;
 	}
 
