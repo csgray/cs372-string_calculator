@@ -28,3 +28,9 @@ TEST_CASE("Three numbers, delimited either way, returns the sum.") {
 	REQUIRE(add("14\n40\n76") == 130);
 	REQUIRE(add("241\n602,963") == 1806);
 }
+
+TEST_CASE("Negative numbers throw an exception.") {
+	REQUIRE_THROWS(add("-1"));
+	REQUIRE_THROWS(add("2,-4"));
+	REQUIRE_THROWS(add("14\n40\n-76"));
+}
