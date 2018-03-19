@@ -34,3 +34,9 @@ TEST_CASE("Negative numbers throw an exception.") {
 	REQUIRE_THROWS(add("2,-4"));
 	REQUIRE_THROWS(add("14\n40\n-76"));
 }
+
+TEST_CASE("Numbers greater than 1000 are ignored.") {
+	REQUIRE(add("1001") == 0);
+	REQUIRE(add("7,10000") == 7);
+	REQUIRE(add("13,2000,27") == 40);
+}
