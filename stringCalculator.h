@@ -1,12 +1,14 @@
-#include <string>
-#include <sstream>
+#include <string>	// std::getline, std::string, std::stoi (converts strings to integers!)
+#include <sstream>	// std::istringstream
 
 int add(std::string numbers) {
-	if (numbers == "")
-		return 0;
-
-	int number; 
+	int sum = 0;
+	int number;
 	std::istringstream stream(numbers);
-	stream >> number;
-	return number;
+	std::string token;
+	
+	while (std::getline(stream, token, ','))
+		sum += std::stoi(token);
+
+	return sum;
 }
